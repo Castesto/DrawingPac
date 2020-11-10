@@ -45,12 +45,14 @@ function drawCir(X1, Y1, R, id, context) {
     var y = R;
     var delta = 1 - 2 * R;
     var error = 0;
+    
     while (y >= 0) {
         context.putImageData(id, X1 + x, Y1 + y);
         context.putImageData(id, X1 + x, Y1 - y);
         context.putImageData(id, X1 - x, Y1 + y);
         context.putImageData(id, X1 - x, Y1 - y);
         error = 2 * (delta + y) - 1;
+        
         if ((delta < 0) && (error <= 0)) {
             delta += 2 * ++x + 1;
             continue;
@@ -61,15 +63,15 @@ function drawCir(X1, Y1, R, id, context) {
         }
         delta += 2 * (++x - y--);
     }
-}
-;
+};
+
 function Pixel4(xc, yc, x, y, id, context) {
     context.putImageData(id, xc + x, yc + y);
-    context.putImageData(id, xc + x, yc - y);
-    // context.putImageData(id,xc - x, yc + y);    
-    // context.putImageData(id,xc - x, yc - y);
-}
-;
+   // context.putImageData(id, xc + x, yc - y);
+     context.putImageData(id,xc - x, yc + y);    
+     context.putImageData(id,xc - x, yc - y);
+};
+
 function ellipse(x, y, a, b, id, context) {
     var xc = 0, yc = b, sqrA = a * a, sqrB = b * b, delta = 4 * sqrB * ((xc + 1) * (xc + 1)) + sqrA * ((2 * yc - 1) * (2 * yc - 1)) - 4 * sqrA * sqrB;
     while (sqrA * (2 * yc - 1) > 2 * sqrB * (xc + 1)) {
@@ -97,9 +99,9 @@ function ellipse(x, y, a, b, id, context) {
             xc++;
         }
     }
-}
-;
-function DrawF(x, y, hx, hy, id, context) {
+};
+
+function DrawFigure(x, y, hx, hy, id, context) {
     drawLine(x, y, x + Math.round(hy / 4), y - Math.round(hy / 2), id, context);
     drawLine(x, y, x + Math.round(hy / 4), y + Math.round(hy / 2), id, context);
     drawLine(x + Math.round(hy / 4), y - Math.round(hy / 2), x + Math.round(hy / 4) + hx, y - Math.round(hy / 2), id, context);
