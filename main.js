@@ -8,7 +8,7 @@
     g[2] = 112;
     g[3] = 255;
     
-    //sdf
+    //sdflastpo
     DrawF(50, 50, 60, 80, id, context);
     var Cord = [
         [45, 285],
