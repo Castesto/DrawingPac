@@ -9,6 +9,7 @@
     g[3] = 255;
     
     //sdf
+    //sd
     DrawF(50, 50, 60, 80, id, context);
     var Cord = [
         [45, 285],
